@@ -14,14 +14,24 @@ Verwalte Getränkekonten, verarbeite Ein-/Auszahlungen und generiere PDF-Reports
 
 ```bash
 git clone git@github.com:jowin202/beermngr.git
+```
+
+### 2️⃣ Container starten
+```bash
 cd beermngr
-docker compose up 
+docker compose up
+```
+
+### 3️⃣ init.json (Tabllendaten) hochladen
+```bash
 curl -X 'POST' \
   'http://localhost:8000/api/init' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@init.json;type=application/json'
 ```
+Hier müssen ggf die Pfade angepast werden.
 
 
-  open ``http://localhost:8000``
+### 4️⃣ fertig
+Seite öffnen ``http://localhost:8000``
