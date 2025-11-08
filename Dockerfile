@@ -1,4 +1,4 @@
-FROM node:20 AS build
+FROM node:22-slim AS build
 WORKDIR /app
 RUN npm install -g @angular/cli
 COPY frontend/ .
