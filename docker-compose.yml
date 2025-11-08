@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  finance-api:
+    build: .
+    container_name: strichliste
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persistente SQLite-Datenbank & PDFs
+      - ./data:/app/data/
+    restart: unless-stopped
+
