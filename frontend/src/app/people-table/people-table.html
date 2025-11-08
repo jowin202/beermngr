@@ -1,0 +1,42 @@
+<table mat-table [dataSource]="people()">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let person">{{ person.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let person">{{ person.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let person">{{ person.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="balance">
+    <th mat-header-cell *matHeaderCellDef> Balance </th>
+    <td mat-cell *matCellDef="let person">
+      @if (person.balance > 0) {
+        💰
+      } @else if (person.balance < 0) {
+        🔴
+      } @else {
+        ➖
+      }
+      {{ person.balance | currency:'EUR'}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Aktionen </th>
+    <td mat-cell *matCellDef="let person">
+      <button mat-icon-button color="primary" (click)="deposit(person)">➕</button>
+      <button mat-icon-button color="warn" (click)="withdraw(person)">➖</button>
+      <button mat-icon-button (click)="downloadReport(person)">⤵️</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let person; columns: displayedColumns;"></tr>
+</table>
