@@ -22,7 +22,20 @@ cd beermngr
 docker compose up
 ```
 
-### 3️⃣ init.json (Tabllendaten) hochladen
+### 3️⃣ init.json (Tabllendaten) anpassen
+Passe Namen und Mail Adressen aller Teilnehmer an. Reihenfolge wird in Tabelle übernommen 
+```json[
+[
+  {"name": "Max Mustermann", "email": "max.mustermann@example.com"},
+  {"name": "Erika Musterfrau", "email": "erika.musterfrau@example.com"},
+  {"name": "Lukas Schneider", "email": "lukas.schneider@example.com"},
+  {"name": "Anna Becker", "email": "anna.becker@example.com"},
+  {"name": "Jonas Fischer", "email": "jonas.fischer@example.com"},
+  {"name": "Lea Wagner", "email": "lea.wagner@example.com"},
+]
+```
+
+### 4️⃣ init.json (Tabllendaten) hochladen
 ```bash
 curl -X 'POST' \
   'http://localhost:8000/api/init' \
@@ -33,5 +46,5 @@ curl -X 'POST' \
 Hier müssen ggf die Pfade angepast werden.
 
 
-### 4️⃣ fertig
+### 5️⃣ fertig
 Seite öffnen ``http://localhost:8000``
